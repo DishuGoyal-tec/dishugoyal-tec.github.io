@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishu Goyal | Analytics Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #000;
+            --teal: #2dd4bf;
+            --white: #f8fafc;
+            --muted: #94a3b8;
+            --card: rgba(15, 23, 42, 0.6);
+            --border: rgba(45, 212, 191, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ================= BACKGROUND ================= */
+        .bg-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at center, #0f172a 0%, #000 100%);
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: float 25s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--teal);
+            top: -10%;
+            left: -10%;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: #3b82f6;
+            bottom: -5%;
+            right: -5%;
+            animation-delay: -5s;
+        }
+
+        .data-node {
+            position: absolute;
+            border: 1px solid var(--border);
+            background: rgba(45, 212, 191, 0.03);
+            border-radius: 20px;
+            animation: rotateObj 15s linear infinite;
+        }
+
+        .node-1 {
+            top: 15%;
+            left: 10%;
+            width: 80px;
+            height: 80px;
+        }
+
+        .node-2 {
+            top: 60%;
+            right: 15%;
+            width: 120px;
+            height: 120px;
+            animation-duration: 25s;
+        }
+
+        .node-3 {
+            bottom: 20%;
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 20s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(60px, 40px) scale(1.1);
+            }
+        }
+
+        @keyframes rotateObj {
+            from {
+                transform: rotate(0deg) translateY(0);
+            }
+
+            to {
+                transform: rotate(360deg) translateY(20px);
+            }
+        }
+
+        /* ================= NAV ================= */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--teal);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            margin-left: 1.6rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--teal);
+        }
+
+        /* Social icon links in nav */
+        .nav-social {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            margin-left: 1.6rem;
+            padding-left: 1.6rem;
+            border-left: 1px solid var(--border);
+        }
+
+        .nav-social a {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0 0.4rem;
+            transition: 0.3s;
+        }
+
+        .nav-social a:hover {
+            color: var(--teal);
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO ================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .profile-pic {
+            width: 170px;
+            height: 170px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            object-fit: cover;
+            border: 3px solid var(--teal);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 40px rgba(45, 212, 191, 0.2);
+            transition: 0.5s;
+            background: #111;
+        }
+
+        .profile-pic:hover {
+            border-radius: 50%;
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0.6rem;
+            display: inline-block;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: #000;
+            border: 1px solid var(--teal);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ================= SECTIONS ================= */
+        section {
+            padding: 8rem 10% 4rem;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: left;
+            margin-bottom: 3.5rem;
+            color: var(--white);
+            font-size: 2.2rem;
+            border-left: 4px solid var(--teal);
+            padding-left: 20px;
+        }
+
+        /* ================= SKILLS ================= */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 2.5rem 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .card i {
+            font-size: 2.8rem;
+            color: var(--teal);
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--teal);
+            background: rgba(45, 212, 191, 0.05);
+        }
+
+        /* ================= PROJECTS ================= */
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--teal);
+        }
+
+        .project-card h3 a {
+            color: var(--teal);
+            text-decoration: none;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            padding: 3rem 10%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid var(--border);
+        }
+
+        @media(max-width:768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-wrapper">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="data-node node-1"></div>
+        <div class="data-node node-2"></div>
+        <div class="data-node node-3"></div>
+    </div>
+
+    <nav>
+        <div class="logo">Dishu Goyal</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <div class="nav-social">
+                <a href="https://www.linkedin.com/in/dishu-g-19d052002" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/DishuGoyal-tec" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <img src="profile.png" alt="Dishu Goyal" class="profile-pic"
+            onerror="this.src='https://ui-avatars.com/api/?name=Dishu+Goyal&background=111&color=2dd4bf&size=200'">
+        <h1>Dishu Goyal</h1>
+        <p class="tagline">Analytics Professional</p>
+        <p style="margin-bottom:2.5rem; color:var(--muted); max-width:650px; font-size: 1.1rem;">
+            Bridging the gap between data and strategy. Specialized in translating complex datasets into actionable
+            growth narratives.
+        </p>
+        <div>
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="https://docs.google.com/document/d/1_Jxhqaa9h5zcpuiiH9msV9DOVxftNT5pGMQk-7jRSPo/edit?tab=t.0"
+                target="_blank" class="btn btn-outline">
+                <i class="fas fa-file-alt"></i> My Resume
+            </a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">Professional Summary</h2>
+        <p style="max-width:900px; color:var(--muted); font-size: 1.15rem; line-height: 1.8;">
+            Detail-oriented analytics professional with a solid foundation in Business Administration and 2.5 years of
+            experience in Finance Operations.
+            Skilled at leveraging SQL, Python, and Power BI to uncover trends and optimize performance. Gold medalist in
+            graduation with a
+            proven track record of academic and professional excellence.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="grid-container">
+            <div class="card"><i class="fas fa-database"></i>
+                <h3>SQL</h3>
+            </div>
+            <div class="card"><i class="fas fa-terminal"></i>
+                <h3>Python</h3>
+            </div>
+            <div class="card"><i class="fas fa-table"></i>
+                <h3>Excel</h3>
+            </div>
+            <div class="card"><i class="fas fa-chart-area"></i>
+                <h3>Power BI</h3>
+            </div>
+            <div class="card"><i class="fas fa-chart-pie"></i>
+                <h3>EDA</h3>
+            </div>
+            <div class="card"><i class="fas fa-calculator"></i>
+                <h3>Statistics</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Technical Portfolio</h2>
+        <div class="project-container">
+
+            <div class="project-card">
+                <h3><a href="https://github.com/DishuGoyal-tec/Ugao_EDA_Python" target="_blank">
+                        Ugaoo Sales EDA <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                    </a></h3>
+                <p>Performed extensive Exploratory Data Analysis (EDA) on sales data using Python (Pandas/Seaborn) to
+                    identify regional demand trends and profit drivers.</p>
+            </div>
+
+            <div class="project-card">
+                <h3><a href="https://github.com/DishuGoyal-tec/Uber-excel-dashboard" target="_blank">
+                        Uber Tips Dashboard <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                    </a></h3>
+                <p>A data-driven Excel tool for driver profitability featuring interactive slicers to analyze tipping
+                    patterns and peak hours.</p>
+            </div>
+
+            <div class="project-card">
+                <h3><a href="https://github.com/DishuGoyal-tec/Pizza-Sales-Dashboard---Power-Bi" target="_blank">
+                        Pizza Sales Analysis <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                    </a></h3>
+                <p>End-to-end Power BI project visualizing revenue growth, inventory turnover, and best-selling product
+                    categories for operational efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div
+            style="text-align:center; background: var(--card); padding: 4rem; border-radius: 30px; border: 1px solid var(--border);">
+            <p style="color:var(--white); margin-bottom:1.5rem; font-size: 1.2rem;">
+                Open to new opportunities — let's talk about data.
+            </p>
+            <a href="mailto:dishugoyal1920@gmail.com" class="btn btn-primary">Drop an Email</a>
+        </div>
+    </section>
+
+    <footer>
+        <p style="color: var(--muted); font-size: 0.9rem;">© 2026 Dishu Goyal | Built for Performance</p>
+    </footer>
+
+</body>
+
+</html>
