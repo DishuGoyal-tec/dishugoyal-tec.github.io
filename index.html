@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dishu Goyal | Analytics Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Dishu Goyal - Analytics Professional. Turning messy data into clear dashboards, automated reports and recommendations that teams can act on.">
+    <meta property="og:title" content="Dishu Goyal | Analytics Portfolio">
+    <meta property="og:description" content="Turning messy data into clear dashboards, automated reports and recommendations that teams can act on.">
+    <meta property="og:type" content="website">
+    <!-- TODO: after hosting, add <meta property="og:url"> and <meta property="og:image"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -162,7 +167,6 @@
             color: var(--teal);
         }
 
-        /* Social icon links in nav */
         .nav-social {
             display: flex;
             align-items: center;
@@ -184,15 +188,26 @@
             transform: translateY(-2px);
         }
 
+        .menu-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--teal);
+            font-size: 1.2rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
         /* ================= HERO ================= */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 6rem 10% 2rem;
         }
 
         .profile-pic {
@@ -224,6 +239,13 @@
             margin-bottom: 1.5rem;
             font-size: 1.6rem;
             font-weight: 700;
+        }
+
+        .hero-desc {
+            margin-bottom: 2.5rem;
+            color: var(--muted);
+            max-width: 650px;
+            font-size: 1.1rem;
         }
 
         .btn {
@@ -268,6 +290,13 @@
             padding-left: 20px;
         }
 
+        .summary-text {
+            max-width: 900px;
+            color: var(--muted);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
         /* ================= SKILLS ================= */
         .grid-container {
             display: grid;
@@ -301,6 +330,59 @@
             background: rgba(45, 212, 191, 0.05);
         }
 
+        /* ================= EXPERIENCE ================= */
+        .timeline {
+            display: grid;
+            gap: 2rem;
+            max-width: 1000px;
+        }
+
+        .timeline-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: 0.4s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--teal);
+        }
+
+        .timeline-head {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-head h3 {
+            font-size: 1.25rem;
+        }
+
+        .timeline-head .org {
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .timeline-head .date {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.2rem;
+            color: var(--muted);
+            font-size: 0.97rem;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+        }
+
         /* ================= PROJECTS ================= */
         .project-container {
             display: grid;
@@ -325,7 +407,8 @@
             border-color: var(--teal);
         }
 
-        .project-card h3 a {
+        .project-card h3 a,
+        .project-card h3 span.title {
             color: var(--teal);
             text-decoration: none;
             font-size: 1.5rem;
@@ -341,6 +424,59 @@
             line-height: 1.6;
         }
 
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.2rem;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            color: var(--teal);
+            background: rgba(45, 212, 191, 0.06);
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            color: var(--muted);
+            border: 1px dashed var(--border);
+            border-radius: 6px;
+            padding: 0.1rem 0.5rem;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        /* ================= CONTACT ================= */
+        .contact-box {
+            text-align: center;
+            background: var(--card);
+            padding: 4rem 2rem;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-box p {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .email-text {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-text a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+
         /* ================= FOOTER ================= */
         footer {
             padding: 3rem 10%;
@@ -350,8 +486,40 @@
         }
 
         @media(max-width:768px) {
+            .menu-btn {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.2rem 8%;
+                background: rgba(0, 0, 0, 0.95);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin-left: 0;
+            }
+
+            .nav-social {
+                margin-left: 0;
+                padding-left: 0;
+                border-left: none;
+            }
+
+            .nav-social a {
+                margin: 0 0.8rem 0 0;
             }
 
             .hero h1 {
@@ -360,6 +528,14 @@
 
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .timeline-item {
+                padding: 1.5rem;
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -377,16 +553,18 @@
 
     <nav>
         <div class="logo">Dishu Goyal</div>
-        <div class="nav-links">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
             <a href="#about">About</a>
+            <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
             <div class="nav-social">
-                <a href="https://www.linkedin.com/in/dishu-g-19d052002" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/dishu-g-19d052002" target="_blank" rel="noopener" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/DishuGoyal-tec" target="_blank" title="GitHub">
+                <a href="https://github.com/DishuGoyal-tec" target="_blank" rel="noopener" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -398,14 +576,13 @@
             onerror="this.src='https://ui-avatars.com/api/?name=Dishu+Goyal&background=111&color=2dd4bf&size=200'">
         <h1>Dishu Goyal</h1>
         <p class="tagline">Analytics Professional</p>
-        <p style="margin-bottom:2.5rem; color:var(--muted); max-width:650px; font-size: 1.1rem;">
-            Bridging the gap between data and strategy. Specialized in translating complex datasets into actionable
-            growth narratives.
+        <p class="hero-desc">
+            Turning messy data into clear dashboards, automated reports and recommendations that teams can act on.
         </p>
         <div>
             <a href="#projects" class="btn btn-primary">View Projects</a>
             <a href="https://docs.google.com/document/d/1_Jxhqaa9h5zcpuiiH9msV9DOVxftNT5pGMQk-7jRSPo/edit?tab=t.0"
-                target="_blank" class="btn btn-outline">
+                target="_blank" rel="noopener" class="btn btn-outline">
                 <i class="fas fa-file-alt"></i> My Resume
             </a>
         </div>
@@ -413,13 +590,51 @@
 
     <section id="about">
         <h2 class="section-title">Professional Summary</h2>
-        <p style="max-width:900px; color:var(--muted); font-size: 1.15rem; line-height: 1.8;">
-            Detail-oriented analytics professional with a solid foundation in Business Administration and 1.4 years of
-            experience in Finance Operations.
-            Skilled at leveraging SQL, Python, and Power BI to uncover trends and optimize performance. Gold medalist in
-            graduation with a
-            proven track record of academic and professional excellence.
+        <p class="summary-text">
+            Analytics professional with a BBA (Gold Medalist) and hands-on experience in MIS reporting, Excel
+            dashboards and financial data operations at a CA firm, and in reporting automation and sales analysis at
+            Love Over Coffee. Work with SQL, Python, Power BI, Power Query and Google Apps Script to find trends,
+            automate reporting and support business decisions.
         </p>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div>
+                        <h3>Business Analyst</h3>
+                        <div class="org">Love Over Coffee (ARG Ltd), Jaipur</div>
+                    </div>
+                    <div class="date">June 2026 - August 2026</div>
+                </div>
+                <ul>
+                    <li>Automated daily sales reporting (DSR) from Petpooja exports using Google Apps Script.</li>
+                    <li>Built a Power Query pipeline to consolidate monthly Order Summary Reports across changing data schemas.</li>
+                    <li>Built a Google Sheets Product Mix report with dynamic filters for food sales analysis.</li>
+                    <li>Standardised category and item naming across Petpooja exports using Python fuzzy matching.</li>
+                    <!-- TODO: add 1-2 real outcomes (time saved, errors removed, who uses it) only if true -->
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-head">
+                    <div>
+                        <h3>Data Analyst</h3>
+                        <div class="org">Prashant Goel &amp; Co. (CA Firm), Haryana</div>
+                    </div>
+                    <div class="date">April 2024 - June 2025</div>
+                </div>
+                <ul>
+                    <li>Prepared MIS reports and built Excel dashboards for financial reporting.</li>
+                    <li>Handled day-to-day financial data operations.</li>
+                    <!-- TODO: add specifics from your actual work (tools, volume, outcomes) -->
+                </ul>
+            </div>
+
+        </div>
     </section>
 
     <section id="skills">
@@ -437,59 +652,116 @@
             <div class="card"><i class="fas fa-chart-area"></i>
                 <h3>Power BI</h3>
             </div>
+            <div class="card"><i class="fas fa-filter"></i>
+                <h3>Power Query</h3>
+            </div>
+            <div class="card"><i class="fas fa-file-excel"></i>
+                <h3>Google Sheets</h3>
+            </div>
             <div class="card"><i class="fas fa-chart-pie"></i>
                 <h3>EDA</h3>
             </div>
             <div class="card"><i class="fas fa-calculator"></i>
                 <h3>Statistics</h3>
             </div>
+            <div class="card"><i class="fas fa-arrows-rotate"></i>
+                <h3>Agile</h3>
+            </div>
+            <div class="card"><i class="fas fa-people-group"></i>
+                <h3>Scrum</h3>
+            </div>
+            <div class="card"><i class="fas fa-file-lines"></i>
+                <h3>BRD / FRD</h3>
+            </div>
         </div>
     </section>
 
     <section id="projects">
-        <h2 class="section-title">Technical Portfolio</h2>
+        <h2 class="section-title">Projects</h2>
         <div class="project-container">
 
             <div class="project-card">
-                <h3><a href="https://github.com/DishuGoyal-tec/ugao_project" target="_blank">
-                        Ugaoo Case Study <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
-                    </a></h3>
-                <p>Performed extensive Exploratory Data Analysis (EDA) on sales data using Python (Pandas/Seaborn) to
-                    identify regional demand trends and profit drivers.</p>
+                <div>
+                    <h3><a href="https://github.com/DishuGoyal-tec/ugao_project" target="_blank" rel="noopener">
+                            Ugaoo Analytics Platform <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                        </a></h3>
+                    <p>Full-stack, AI-powered business analytics platform for a D2C gardening brand. Combines EDA on
+                        sales data (Pandas/Seaborn) to surface regional demand trends and profit drivers with an
+                        AI layer for business insights.</p>
+                </div>
+                <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Seaborn</span><span class="tag">AI</span></div>
             </div>
 
             <div class="project-card">
-                <h3><a href="https://github.com/DishuGoyal-tec/Uber-excel-dashboard" target="_blank">
-                        Uber Tips Dashboard <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
-                    </a></h3>
-                <p>A data-driven Excel tool for driver profitability featuring interactive slicers to analyze tipping
-                    patterns and peak hours.</p>
+                <div>
+                    <h3><a href="https://github.com/DishuGoyal-tec/Uber-excel-dashboard" target="_blank" rel="noopener">
+                            Uber Tips Dashboard <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                        </a></h3>
+                    <p>A data-driven Excel tool for driver profitability featuring interactive slicers to analyze tipping
+                        patterns and peak hours.</p>
+                </div>
+                <div class="tags"><span class="tag">Excel</span><span class="tag">Slicers</span><span class="tag">Dashboard</span></div>
             </div>
 
             <div class="project-card">
-                <h3><a href="https://github.com/DishuGoyal-tec/Pizza-Sales-Dashboard---Power-Bi" target="_blank">
-                        Pizza Sales Analysis <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
-                    </a></h3>
-                <p>End-to-end Power BI project visualizing revenue growth, inventory turnover, and best-selling product
-                    categories for operational efficiency.</p>
+                <div>
+                    <h3><a href="https://github.com/DishuGoyal-tec/Pizza-Sales-Dashboard---Power-Bi" target="_blank" rel="noopener">
+                            Pizza Sales Analysis <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                        </a></h3>
+                    <p>End-to-end Power BI project visualizing revenue growth, inventory turnover, and best-selling product
+                        categories for operational efficiency.</p>
+                </div>
+                <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Dashboard</span></div>
             </div>
+
+            <div class="project-card">
+                <div>
+                    <h3><a href="https://github.com/DishuGoyal-tec/chaayos-location-sql" target="_blank" rel="noopener">
+                            Chaayos Location Strategy <i class="fas fa-external-link-alt" style="font-size: 1rem;"></i>
+                        </a></h3>
+                    <p>SQL location-strategy project answering where Chaayos should open its next cafe in Gurugram.
+                        Cleaned Google Maps data and scored 60 candidate sites on footfall, cannibalisation and
+                        competition, producing a shortlist of top areas for site visits.</p>
+                </div>
+                <div class="tags"><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">Window Functions</span><span class="tag">Google Maps Data</span></div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <span class="badge">Work project</span>
+                    <h3><span class="title">Daily Sales Report Automation</span></h3>
+                    <p>Google Apps Script system that automates daily sales reporting for Love Over Coffee from
+                        Petpooja exports.</p>
+                </div>
+                <div class="tags"><span class="tag">Google Apps Script</span><span class="tag">Google Sheets</span><span class="tag">Automation</span></div>
+            </div>
+
         </div>
     </section>
 
     <section id="contact">
         <h2 class="section-title">Let's Connect</h2>
-        <div
-            style="text-align:center; background: var(--card); padding: 4rem; border-radius: 30px; border: 1px solid var(--border);">
-            <p style="color:var(--white); margin-bottom:1.5rem; font-size: 1.2rem;">
-                Open to new opportunities — let's talk about data.
-            </p>
-            <a href="mailto:dishugoyal1920@gmail.com" class="btn btn-primary">Drop an Email</a>
+        <div class="contact-box">
+            <p>Open to new opportunities. Let's talk about data.</p>
+            <div class="email-text">
+                <a href="mailto:dishugoyal1920@gmail.com">dishugoyal1920@gmail.com</a>
+            </div>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dishugoyal1920@gmail.com" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-envelope"></i> Drop an Email</a>
+            <a href="https://www.linkedin.com/in/dishu-g-19d052002" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/DishuGoyal-tec" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
         </div>
     </section>
 
     <footer>
-        <p style="color: var(--muted); font-size: 0.9rem;">© 2026 Dishu Goyal | Built for Performance</p>
+        <p style="color: var(--muted); font-size: 0.9rem;">&copy; 2026 Dishu Goyal | Built for Performance</p>
     </footer>
+
+    <script>
+        const btn = document.getElementById('menuBtn');
+        const links = document.getElementById('navLinks');
+        btn.addEventListener('click', () => links.classList.toggle('open'));
+        links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    </script>
 
 </body>
 
